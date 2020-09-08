@@ -27,7 +27,8 @@ $translateY-amount: 56%;
     border-left: 3px solid transparent;
     position: relative;
 
-    &:hover {
+    &:hover,
+    &.active {
       color: cyan;
       background: #1e1e1e;
       border-left: 3px solid cyan;

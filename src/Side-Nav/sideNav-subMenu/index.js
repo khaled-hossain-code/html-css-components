@@ -1,5 +1,6 @@
 const featureBtn = document.querySelector(".feature-btn")
 const servicesBtn = document.querySelector(".services-btn")
+const menuItemList = document.querySelectorAll(".side-nav__menu-list-item")
 const classes = {}
 
 const toggleClass = (elementSelector, togglingSelector) => {
@@ -25,6 +26,16 @@ featureBtn.addEventListener("click", () =>
   handleSubMenuToggle(".feature-sub-menu", ".feature-btn")
 )
 
-servicesBtn.addEventListener("click", () => {
-  return handleSubMenuToggle(".services-sub-menu", ".services-btn")
+servicesBtn.addEventListener("click", () =>
+  handleSubMenuToggle(".services-sub-menu", ".services-btn")
+)
+
+menuItemList.forEach((item) => {
+  item.addEventListener("click", (event) => {
+    document.querySelectorAll(".side-nav__link").forEach((item) => {
+      item.classList.remove("active")
+    })
+    console.log("setactive")
+    event.target.classList.add("active")
+  })
 })

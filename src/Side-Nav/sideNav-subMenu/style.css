@@ -23,7 +23,7 @@
   border-left: 3px solid transparent;
   position: relative; }
 
-.side-nav__link:hover {
+.side-nav__link:hover, .side-nav__link.active {
   color: cyan;
   background: #1e1e1e;
   border-left: 3px solid cyan; }
