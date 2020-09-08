@@ -2,25 +2,29 @@ const featureBtn = document.querySelector(".feature-btn")
 const servicesBtn = document.querySelector(".services-btn")
 const classes = {}
 
-handleSubMenuToggle = (subMenuSelector, toggleBtnSelector) => {
-  const subMenu = document.querySelector(subMenuSelector)
-  const subMenuBtnIcon = document.querySelector(`${toggleBtnSelector} i`)
-  const isSubMenuOpen = document.querySelector(
-    `${subMenuSelector}.side-nav__sub-menu-list--open`
+const toggleClass = (elementSelector, togglingSelector) => {
+  const element = document.querySelector(elementSelector)
+  const hasClass = document.querySelector(
+    `${elementSelector}${togglingSelector}`
   )
+  const togglingClassName = togglingSelector.slice(1)
 
-  if (isSubMenuOpen) {
-    subMenu.classList.remove("side-nav__sub-menu-list--open")
-    subMenuBtnIcon.classList.remove("side-nav__icon--open")
+  if (hasClass) {
+    element.classList.remove(togglingClassName)
   } else {
-    subMenu.classList.add("side-nav__sub-menu-list--open")
-    subMenuBtnIcon.classList.add("side-nav__icon--open")
+    element.classList.add(togglingClassName)
   }
+}
+
+const handleSubMenuToggle = (subMenuSelectorStr, toggleBtnSelectorStr) => {
+  toggleClass(subMenuSelectorStr, ".side-nav__sub-menu-list--open")
+  toggleClass(`${toggleBtnSelectorStr} i`, ".side-nav__icon--open")
 }
 
 featureBtn.addEventListener("click", () =>
   handleSubMenuToggle(".feature-sub-menu", ".feature-btn")
 )
-servicesBtn.addEventListener("click", () =>
-  handleSubMenuToggle(".services-sub-menu", ".services-btn")
-)
+
+servicesBtn.addEventListener("click", () => {
+  return handleSubMenuToggle(".services-sub-menu", ".services-btn")
+})
