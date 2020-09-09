@@ -10,11 +10,45 @@ $translateY-amount: 56%;
   font-family: "Poppins", sans-serif;
 }
 
+.burger {
+  &-btn {
+    position: absolute;
+    top: 15px;
+    left: 45px;
+    height: 45px;
+    width: 45px;
+    background: #1e1e1e;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: left 0.3s ease-in;
+  }
+
+  &-btn.side-nav--open {
+    left: 260px;
+
+    .burger-icon::before {
+      content: "\f00d";
+    }
+  }
+
+  &-icon {
+    color: white;
+    font-size: 28px;
+    line-height: 45px;
+  }
+}
+
 .side-nav {
   position: fixed;
   background: black;
   width: 250px;
   height: 100%;
+  left: -250px;
+  transition: left 0.3s ease-in;
+  &.open {
+    left: 0;
+  }
 
   &__link {
     text-decoration: none;

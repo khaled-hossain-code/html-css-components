@@ -1,5 +1,6 @@
 const featureBtn = document.querySelector(".feature-btn")
 const servicesBtn = document.querySelector(".services-btn")
+const sideNavBtn = document.querySelector(".burger-btn")
 const menuItemList = document.querySelectorAll(".side-nav__menu-list-item")
 const classes = {}
 
@@ -29,6 +30,11 @@ featureBtn.addEventListener("click", () =>
 servicesBtn.addEventListener("click", () =>
   handleSubMenuToggle(".services-sub-menu", ".services-btn")
 )
+
+sideNavBtn.addEventListener("click", () => {
+  toggleClass(".burger-btn", ".side-nav--open")
+  toggleClass(".side-nav", ".open")
+})
 
 menuItemList.forEach((item) => {
   item.addEventListener("click", (event) => {
